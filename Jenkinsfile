@@ -18,12 +18,13 @@ pipeline {
                 sh 'pwd'
                 sh 'ls -la'
                 sh 'docker --version'
+                sh 'ls -la /etc/docker/'
                 sh 'docker build -t go-backend .'
                 // sh 'docker run back-app -p 3333:3333 -p 4444:4444 go-backend'
             }
         }
         stage ('Build and publish the image') {
-            image "gcr.io/kaniko-project/executor:v1.14.0-debug"
+            agent { docker { image "gcr.io/kaniko-project/executor:v1.14.0-debug" } }
             steps {
                 script {
                     sh '/kaniko/executor  \
