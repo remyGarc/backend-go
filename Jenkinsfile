@@ -16,7 +16,7 @@ pipeline {
         stage ('Build application') {
             steps {
                 sh 'docker build -t go-backend .'
-                sh 'docker run back-app -p 3333:3333 -p 4444:4444 go-backend'
+                // sh 'docker run back-app -p 3333:3333 -p 4444:4444 go-backend'
             }
         }
         stage ('Build and publish the image') {
