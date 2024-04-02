@@ -27,8 +27,8 @@ pipeline {
             steps {
                 script {
                     sh '/kaniko/executor  \
-                        --context .
-                        --docekrfile Dockerfile
+                        --context . \
+                        --docekrfile Dockerfile \
                         --destination=docker.io/library/go-backend \
                         --insecure \
                         --skip-tls-verify \
