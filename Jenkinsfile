@@ -29,10 +29,8 @@ pipeline {
                 script {
                     sh '/kaniko/executor  \
                         --context . \
-                        --docekrfile Dockerfile \
+                        --dockerfile Dockerfile \
                         --destination=docker.io/library/go-backend \
-                        --insecure \
-                        --skip-tls-verify \
                         -v=debug'
                     if (returnStatus == 0) {
                         echo 'Successfully built and published Docker image'
