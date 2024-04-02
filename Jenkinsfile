@@ -16,6 +16,7 @@ pipeline {
         stage ('Build application') {
             steps {
                 sh 'pwd'
+                sh 'ls -la'
                 // sh 'docker build -t go-backend .'
                 // sh 'docker run back-app -p 3333:3333 -p 4444:4444 go-backend'
             }
