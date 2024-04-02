@@ -22,20 +22,25 @@ pipeline {
                 // sh 'docker run back-app -p 3333:3333 -p 4444:4444 go-backend'
             }
         }
-        // stage ('Build and publish the image') {
-        //     steps {
-        //         sh '/kaniko/executor  \
-        //             --destination=docker.io/library/go-backend \
-        //             --insecure \
-        //             --skip-tls-verify \
-        //             -v=debug'
-        //         // if ($? == '0') {
-        //         //     echo 'Successfully built and published Docker image'
-        //         // }
-        //         // else {
-        //         //     error("Container exited")
-        //         // }
-        //     }
-        // }
+        stage ('Build and publish the image') {
+            image "gcr.io/kaniko-project/executor:v1.14.0-debug"
+            steps {
+                script {
+                    sh '/kaniko/executor  \
+                        --context .
+                        --docekrfile Dockerfile
+                        --destination=docker.io/library/go-backend \
+                        --insecure \
+                        --skip-tls-verify \
+                        -v=debug'
+                    if (returnStatus == 0) {
+                        echo 'Successfully built and published Docker image'
+                    }
+                    else {
+                        error 'Container exited'
+                    }
+                }
+            }
+        }
     }
 }
