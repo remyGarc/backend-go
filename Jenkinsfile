@@ -20,7 +20,7 @@ pipeline {
             }
         }
         stage ('Build and publish the image') {
-            container('kaniko') {
+            steps {
                 sh '/kaniko/executor  \
                     --destination=docker.io/library/go-backend \
                     --insecure \
