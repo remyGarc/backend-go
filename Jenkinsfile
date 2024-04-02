@@ -26,12 +26,12 @@ pipeline {
                     --insecure \
                     --skip-tls-verify \
                     -v=debug'
-                if ($? == '0') {
-                    echo 'Successfully built and published Docker image'
-                }
-                else {
-                    error("Container exited")
-                }
+                // if ($? == '0') {
+                //     echo 'Successfully built and published Docker image'
+                // }
+                // else {
+                //     error("Container exited")
+                // }
             }
         }
     }
