@@ -11,8 +11,8 @@
 // }
 
 pipeline {
-    // agent any
-    agent { docker { image "gcr.io/kaniko-project/executor:v1.14.0-debug" } }
+    agent any
+    // agent { docker { image "gcr.io/kaniko-project/executor:v1.14.0-debug" } }
     stages {
         stage ('Build application') {
             steps {
