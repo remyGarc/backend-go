@@ -6,10 +6,10 @@ COPY . .
 
 RUN go build -o ./server .
 
-# FROM busybox:1.36.1 AS runner
+FROM busybox:1.36.1 AS runner
 
-# WORKDIR /app
+WORKDIR /app
 
-# COPY --from=builder /app/server .
+COPY --from=builder /app/server .
 
-# CMD ["./server"]
+CMD ["./server"]

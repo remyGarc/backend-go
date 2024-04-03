@@ -5,7 +5,7 @@ services:
     image: jenkins-blueocean:2.440.2-1
     restart: on-failure
     # volumes:
-      # - jenkins-data:/var/jenkins_home
+    #   - jenkins-data:/var/jenkins_home
       # - jenkins-docker-certs:/certs/client:ro
     networks:
       - jenkins

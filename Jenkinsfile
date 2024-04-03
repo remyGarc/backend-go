@@ -21,6 +21,7 @@ pipeline {
                 sh 'pwd'
                 sh 'ls -la'
                 sh 'docker --version'
+                sh 'docker container ps -a'
                 // sh 'ls -la /etc/docker/'
                 // sh '/kaniko/executor --context . --dockerfile Dockerfile '
                 sh 'docker build -t go-backend .'
