@@ -11,7 +11,8 @@
 // }
 
 pipeline {
-    agent { docker { image "gcr.io/kaniko-project/executor:v1.14.0-debug" } }
+    agent any
+    // agent { docker { image "gcr.io/kaniko-project/executor:v1.14.0-debug" } }
     stages {
         stage ('Build application') {
             steps {
@@ -19,8 +20,8 @@ pipeline {
                 sh 'ls -la'
                 sh 'docker --version'
                 // sh 'ls -la /etc/docker/'
-                sh '/kaniko/executor --context . --dockerfile Dockerfile'
-                // build -t go-backend .'
+                // sh '/kaniko/executor --context . --dockerfile Dockerfile'
+                sh 'docker build -t go-backend .'
                 // sh 'docker run back-app -p 3333:3333 -p 4444:4444 go-backend'
             }
         }
