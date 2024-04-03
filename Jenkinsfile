@@ -10,6 +10,8 @@
 //     }
 // }
 
+//docker run --name jenkins-blueocean --restart=on-failure --detach --network jenkins --env DOCKER_HOST=tcp://docker:2376 --volume jenkins-data:/var/jenkins_home --volume jenkins-docker-certs:/certs/client:ro  --publish 8080:8080 --publish 50000:50000 jenkins-blueocean:2.440.2-1
+
 pipeline {
     agent any
     // agent { docker { image "gcr.io/kaniko-project/executor:v1.14.0-debug" } }
